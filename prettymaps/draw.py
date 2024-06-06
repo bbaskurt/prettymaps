@@ -573,8 +573,9 @@ def draw_text(
             x=0, y=1,
             horizontalalignment='left',
             verticalalignment='top',
-            bbox=dict(boxstyle='square', fc='#fff', ec='#000'),
-            fontfamily='Ubuntu Mono'
+            #bbox=dict(boxstyle='square', fc='#fff', ec='#000'),
+            fontfamily='Ubuntu Mono',
+            size=2
         ),
         params
     )
@@ -582,9 +583,13 @@ def draw_text(
 
     # Get background bounds
     xmin, ymin, xmax, ymax = background.bounds
+    print(xmax)
+    print(ymax)
 
     x = np.interp([x], [0, 1], [xmin, xmax])[0]
     y = np.interp([y], [0, 1], [ymin, ymax])[0]
+
+    print('X: ', x, ' Y: ', y)
 
     plt.text(
         x, y, text,
