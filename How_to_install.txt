@@ -1,0 +1,4 @@
+conda create -n prettymaps python=3.9 -y
+conda activate prettymaps
+pip install -r requirements.txt
+bash run_bulk.sh or bash run_single.sh
