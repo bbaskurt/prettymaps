@@ -14,6 +14,8 @@ from peracolor.etsy_api import EtsyClient
 # Etsy's "when was it made" bucket covering the current period.
 WHEN_MADE = "2020_2026"
 WHO_MADE = "i_did"
+# Etsy allows two styles; these match the posters and feed Etsy's style filters.
+STYLES = ("Minimalist", "Modern")
 
 
 class DraftSpec(BaseModel):
@@ -41,6 +43,7 @@ def draft_fields(spec: DraftSpec) -> dict[str, str]:
         "type": "download",
         "should_auto_renew": "true",
         "tags": ",".join(spec.tags),
+        "styles": ",".join(STYLES),
     }
     if spec.shop_section_id is not None:
         fields["shop_section_id"] = str(spec.shop_section_id)

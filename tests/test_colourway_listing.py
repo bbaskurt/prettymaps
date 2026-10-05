@@ -8,6 +8,7 @@ from peracolor.colourway_listing import (
     CopyRewriteError,
     colourway_description,
     colourway_title,
+    keyword_line,
     new_listing_copy,
 )
 from peracolor.models import Place, load_places
@@ -81,13 +82,14 @@ class TestNewListingCopy:
         assert len(copy.tags) == 13
         assert len(set(copy.tags)) == 13
         assert all(len(tag) <= 20 for tag in copy.tags)
+        assert any(tag.endswith(" map print") and tag != "city map print" for tag in copy.tags)
 
-    def test_description_leads_with_all_versions(self) -> None:
-        """Given a place, when its description is built, then buyers first read that all 3 versions are included."""
+    def test_description_leads_with_keywords_then_all_versions(self) -> None:
+        """Given a place, when its description is built, then it opens with the search phrase followed by the all-versions line."""
         place = load_places(REPO_ROOT / "places.yaml")[0]
 
         description = new_listing_copy(place).description
 
-        assert description.startswith(ALL_VERSIONS_LINE)
+        assert description.startswith(f"{keyword_line(place)}\n\n{ALL_VERSIONS_LINE}")
         assert COLOURWAY_WHAT_YOU_GET in description
         assert "OpenStreetMap" not in description

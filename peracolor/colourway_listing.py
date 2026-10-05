@@ -88,16 +88,19 @@ def apply_colourways(client: EtsyClient, shop_id: int, plan: ReplacementPlan) ->
     )
 
 
+# Ordered by priority: tags past Etsy's limit of 13 are dropped. Chosen from the phrases
+# most used by top-ranked map listings (October 2026 market scan).
 GENERIC_TAGS = (
     "city map print",
+    "city map poster",
     "map wall art",
-    "printable wall art",
-    "travel gift",
     "housewarming gift",
-    "map poster",
-    "circle map",
-    "travel poster",
+    "printable map",
+    "street map print",
+    "black and white map",
 )
+# Short forms for cities whose "<city> map print" tag would exceed Etsy's 20-character limit.
+CITY_TAG_ALIASES = {"los angeles": "la", "new orleans": "nola", "philadelphia": "philly", "san francisco": "sf"}
 MINIMALIST_TAG = "minimalist map"
 TAG_LIMIT = 13
 TAG_MAX_CHARS = 20
@@ -132,11 +135,24 @@ def new_listing_title(place: Place) -> str:
     return title
 
 
+def city_map_print_tag(city: str) -> str:
+    """The exact phrase buyers search, e.g. "london map print", shortened where Etsy's limit requires."""
+    tag = f"{city} map print"
+    if len(tag) <= TAG_MAX_CHARS:
+        return tag
+    return f"{CITY_TAG_ALIASES[city]} map print"
+
+
+def keyword_line(place: Place) -> str:
+    """Search-friendly opening line; Etsy and Google show roughly the first 160 characters."""
+    area = f"{place.subtitle} " if place.subtitle else ""
+    return f"{place.city} Map Print, {area}Street Map Poster – Instant Digital Download"
+
+
 def new_listing_tags(place: Place) -> list[str]:
     city = place.city.lower()
-    # "minimalist map" is a high-volume search that fits the Mono version; it replaces
-    # "<city> poster", which mostly duplicates the generic "map poster" tag.
-    candidates = [f"{city} map", f"{city} print", f"{city} wall art", MINIMALIST_TAG, f"{city} gift"]
+    # "minimalist map" is a high-volume search that fits the Mono version.
+    candidates = [city_map_print_tag(city), f"{city} map", f"{city} wall art", MINIMALIST_TAG, f"{city} gift"]
     if place.subtitle:
         candidates.append(place.subtitle.lower())
     candidates += [hint.lower() for hint in place.tag_hints] + list(GENERIC_TAGS)
@@ -150,7 +166,7 @@ def new_listing_description(place: Place) -> str:
         f"A circle map of {where}, drawn from real street and building data. Bright, modern city wall art "
         f"for anyone who lives in, loves or has travelled to {place.city}."
     )
-    return f"{ALL_VERSIONS_LINE}\n\n{intro}\n\n{COLOURWAY_WHAT_YOU_GET}\n\n{NEW_LISTING_FOOTER}"
+    return f"{keyword_line(place)}\n\n{ALL_VERSIONS_LINE}\n\n{intro}\n\n{COLOURWAY_WHAT_YOU_GET}\n\n{NEW_LISTING_FOOTER}"
 
 
 def new_listing_copy(place: Place) -> NewListingCopy:
