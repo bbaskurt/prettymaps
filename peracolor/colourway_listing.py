@@ -21,7 +21,7 @@ INTRO_PATTERN = re.compile(r"^A colourful circle map of ")
 INTRO_REPLACEMENT = "A circle map of "
 ALL_VERSIONS_LINE = (
     "YOU RECEIVE ALL 3 COLOUR VERSIONS: Original (bold red, orange and yellow), "
-    "Mono (warm greys) and Sage & Terracotta (earthy greens and clay). See the photos for each one."
+    "Minimalist Mono (warm greys) and Sage & Terracotta (earthy greens and clay). See the photos for each one."
 )
 
 COLOURWAY_WHAT_YOU_GET = """WHAT YOU GET
@@ -98,6 +98,7 @@ GENERIC_TAGS = (
     "circle map",
     "travel poster",
 )
+MINIMALIST_TAG = "minimalist map"
 TAG_LIMIT = 13
 TAG_MAX_CHARS = 20
 TITLE_MAX_CHARS = 140
@@ -133,7 +134,9 @@ def new_listing_title(place: Place) -> str:
 
 def new_listing_tags(place: Place) -> list[str]:
     city = place.city.lower()
-    candidates = [f"{city} map", f"{city} print", f"{city} wall art", f"{city} poster", f"{city} gift"]
+    # "minimalist map" is a high-volume search that fits the Mono version; it replaces
+    # "<city> poster", which mostly duplicates the generic "map poster" tag.
+    candidates = [f"{city} map", f"{city} print", f"{city} wall art", MINIMALIST_TAG, f"{city} gift"]
     if place.subtitle:
         candidates.append(place.subtitle.lower())
     candidates += [hint.lower() for hint in place.tag_hints] + list(GENERIC_TAGS)
