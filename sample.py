@@ -60,7 +60,7 @@ if __name__ == "__main__":
         location,
         circle = True,
         radius = 1100,
-        #credit = False,
+        credit = False,
         #title = 'Regent Park',
         dilate = 0,
         #rotation = 90

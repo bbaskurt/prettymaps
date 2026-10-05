@@ -1,0 +1,779 @@
+# PeraColor places. Each entry becomes one Etsy listing.
+#
+# `centre` is set explicitly for every place: it keeps circles inland, because
+# OpenStreetMap maps the sea only as coastline lines (not polygons), so open sea
+# would render as a flat, oddly clipped area. Rivers, lakes and canals are fine.
+# `query` documents the place; rendering uses `centre` directly (offline, no geocoding).
+# `osm_region` is the Geofabrik extract containing the place (download.geofabrik.de).
+# Sorted alphabetically by slug.
+places:
+- slug: amsterdam-canal-ring
+  title: Amsterdam
+  city: Amsterdam
+  country: Netherlands
+  osm_region: europe/netherlands/noord-holland
+  subtitle: Canal Ring
+  query: Canal Ring, Amsterdam, Netherlands
+  centre:
+    lat: 52.37
+    lon: 4.89
+  radius: 1100
+  tag_hints:
+  - amsterdam gift
+  - dutch decor
+- slug: athens-plaka
+  title: Athens
+  city: Athens
+  country: Greece
+  osm_region: europe/greece
+  subtitle: Plaka
+  query: Plaka, Athens, Greece
+  centre:
+    lat: 37.9715
+    lon: 23.7267
+  radius: 1100
+  tag_hints:
+  - greece travel
+- slug: austin-downtown
+  title: Austin
+  city: Austin
+  country: USA
+  osm_region: north-america/us/texas
+  subtitle: Downtown
+  query: Downtown, Austin, USA
+  centre:
+    lat: 30.2672
+    lon: -97.7431
+  radius: 1100
+  tag_hints:
+  - austin gift
+  - texas map
+- slug: barcelona-gracia
+  title: Barcelona
+  city: Barcelona
+  country: Spain
+  osm_region: europe/spain/cataluna
+  subtitle: Gràcia
+  query: Gràcia, Barcelona, Spain
+  centre:
+    lat: 41.4036
+    lon: 2.157
+  radius: 1100
+  tag_hints:
+  - barcelona gift
+- slug: barcelona-park-guell
+  title: Barcelona
+  city: Barcelona
+  country: Spain
+  osm_region: europe/spain/cataluna
+  subtitle: Park Güell
+  query: Park Güell, Barcelona, Spain
+  centre:
+    lat: 41.4145
+    lon: 2.1527
+  radius: 1100
+  tag_hints:
+  - park guell
+  - spain wall art
+- slug: barcelona-plaza-catalunya
+  title: Barcelona
+  city: Barcelona
+  country: Spain
+  osm_region: europe/spain/cataluna
+  subtitle: Plaça de Catalunya
+  query: Plaça de Catalunya, Barcelona, Spain
+  centre:
+    lat: 41.387
+    lon: 2.17
+  radius: 1100
+  tag_hints:
+  - plaza catalunya
+  - spain wall art
+- slug: barcelona-sagrada-familia
+  title: Barcelona
+  city: Barcelona
+  country: Spain
+  osm_region: europe/spain/cataluna
+  subtitle: Sagrada Família
+  query: Sagrada Família, Barcelona, Spain
+  centre:
+    lat: 41.4036
+    lon: 2.1744
+  radius: 1100
+  tag_hints:
+  - sagrada familia
+  - spain wall art
+- slug: bath
+  title: Bath
+  city: Bath
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/somerset
+  query: Bath, United Kingdom
+  centre:
+    lat: 51.3811
+    lon: -2.359
+  radius: 1100
+  tag_hints:
+  - england map
+- slug: berlin-mitte
+  title: Berlin
+  city: Berlin
+  country: Germany
+  osm_region: europe/germany/berlin
+  subtitle: Mitte
+  query: Mitte, Berlin, Germany
+  centre:
+    lat: 52.52
+    lon: 13.405
+  radius: 1100
+  tag_hints:
+  - berlin gift
+- slug: boston-back-bay
+  title: Boston
+  city: Boston
+  country: USA
+  osm_region: north-america/us/massachusetts
+  subtitle: Back Bay
+  query: Back Bay, Boston, USA
+  centre:
+    lat: 42.3503
+    lon: -71.081
+  radius: 1100
+  tag_hints:
+  - boston gift
+- slug: bristol
+  title: Bristol
+  city: Bristol
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/bristol
+  query: Bristol, United Kingdom
+  centre:
+    lat: 51.4545
+    lon: -2.5879
+  radius: 1100
+  tag_hints:
+  - england map
+- slug: brooklyn-park-slope
+  title: Brooklyn
+  city: Brooklyn
+  country: USA
+  osm_region: north-america/us/new-york
+  subtitle: Park Slope
+  query: Park Slope, Brooklyn, USA
+  centre:
+    lat: 40.672
+    lon: -73.9778
+  radius: 1100
+  tag_hints:
+  - new york gift
+  - nyc map
+- slug: brussels
+  title: Brussels
+  city: Brussels
+  country: Belgium
+  osm_region: europe/belgium
+  query: Brussels, Belgium
+  centre:
+    lat: 50.8467
+    lon: 4.3525
+  radius: 1100
+  tag_hints:
+  - belgium map
+- slug: budapest
+  title: Budapest
+  city: Budapest
+  country: Hungary
+  osm_region: europe/hungary
+  query: Budapest, Hungary
+  centre:
+    lat: 47.4979
+    lon: 19.0402
+  radius: 1100
+  tag_hints:
+  - hungary map
+- slug: cambridge
+  title: Cambridge
+  city: Cambridge
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/cambridgeshire
+  query: Cambridge, United Kingdom
+  centre:
+    lat: 52.2053
+    lon: 0.1218
+  radius: 1100
+  tag_hints:
+  - university gift
+- slug: chicago-the-loop
+  title: Chicago
+  city: Chicago
+  country: USA
+  osm_region: north-america/us/illinois
+  subtitle: The Loop
+  query: The Loop, Chicago, Illinois, USA
+  centre:
+    lat: 41.881
+    lon: -87.632
+  radius: 1100
+  tag_hints:
+  - chicago skyline
+  - illinois decor
+- slug: chicago-wicker-park
+  title: Chicago
+  city: Chicago
+  country: USA
+  osm_region: north-america/us/illinois
+  subtitle: Wicker Park
+  query: Wicker Park, Chicago, USA
+  centre:
+    lat: 41.9088
+    lon: -87.6776
+  radius: 1100
+  tag_hints:
+  - chicago gift
+- slug: copenhagen-indre-by
+  title: Copenhagen
+  city: Copenhagen
+  country: Denmark
+  osm_region: europe/denmark
+  subtitle: Indre By
+  query: Indre By, Copenhagen, Denmark
+  centre:
+    lat: 55.68
+    lon: 12.573
+  radius: 900
+  tag_hints:
+  - danish decor
+- slug: denver
+  title: Denver
+  city: Denver
+  country: USA
+  osm_region: north-america/us/colorado
+  query: Denver, USA
+  centre:
+    lat: 39.7392
+    lon: -104.9903
+  radius: 1100
+  tag_hints:
+  - colorado map
+- slug: dublin
+  title: Dublin
+  city: Dublin
+  country: Ireland
+  osm_region: europe/ireland-and-northern-ireland
+  query: Dublin, Ireland
+  centre:
+    lat: 53.3438
+    lon: -6.2546
+  radius: 1100
+  tag_hints:
+  - irish gift
+- slug: edinburgh-old-town
+  title: Edinburgh
+  city: Edinburgh
+  country: United Kingdom
+  osm_region: europe/united-kingdom/scotland
+  subtitle: Old Town
+  query: Old Town, Edinburgh, United Kingdom
+  centre:
+    lat: 55.95
+    lon: -3.19
+  radius: 1100
+  tag_hints:
+  - scotland map
+  - scottish gift
+- slug: florence
+  title: Florence
+  city: Florence
+  country: Italy
+  osm_region: europe/italy/centro
+  query: Florence, Italy
+  centre:
+    lat: 43.771
+    lon: 11.255
+  radius: 1100
+  tag_hints:
+  - italy map
+  - tuscany print
+- slug: glasgow
+  title: Glasgow
+  city: Glasgow
+  country: United Kingdom
+  osm_region: europe/united-kingdom/scotland
+  query: Glasgow, United Kingdom
+  centre:
+    lat: 55.8609
+    lon: -4.2514
+  radius: 1100
+  tag_hints:
+  - scotland map
+- slug: istanbul-pera
+  title: Istanbul
+  city: Istanbul
+  country: Türkiye
+  osm_region: europe/turkey
+  subtitle: Pera
+  query: Pera, Istanbul, Türkiye
+  centre:
+    lat: 41.037
+    lon: 28.985
+  radius: 1000
+  tag_hints:
+  - beyoglu map
+  - turkey map
+- slug: krakow-old-town
+  title: Kraków
+  city: Krakow
+  country: Poland
+  osm_region: europe/poland/malopolskie
+  subtitle: Old Town
+  query: Old Town, Krakow, Poland
+  centre:
+    lat: 50.0614
+    lon: 19.9366
+  radius: 1100
+  tag_hints:
+  - poland map
+- slug: lisbon-bairro-alto
+  title: Lisbon
+  city: Lisbon
+  country: Portugal
+  osm_region: europe/portugal
+  subtitle: Bairro Alto
+  query: Bairro Alto, Lisbon, Portugal
+  centre:
+    lat: 38.717
+    lon: -9.148
+  radius: 900
+  tag_hints:
+  - lisboa print
+  - portugal map
+- slug: london-big-ben
+  title: London
+  city: London
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-london
+  subtitle: Big Ben
+  query: Big Ben, Westminster, London, United Kingdom
+  centre:
+    lat: 51.5007
+    lon: -0.1246
+  radius: 1100
+  tag_hints:
+  - big ben
+  - uk wall art
+- slug: london-buckingham-palace
+  title: London
+  city: London
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-london
+  subtitle: Buckingham Palace
+  query: Buckingham Palace, London, United Kingdom
+  centre:
+    lat: 51.5014
+    lon: -0.1419
+  radius: 1100
+  tag_hints:
+  - buckingham palace
+  - uk wall art
+- slug: london-greenwich
+  title: London
+  city: London
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-london
+  subtitle: Greenwich
+  query: Greenwich, London, United Kingdom
+  centre:
+    lat: 51.481
+    # Kept west of the Prime Meridian: circles crossing 0° longitude render as a flat strip.
+    lon: -0.0175
+  radius: 1100
+  tag_hints:
+  - london gift
+- slug: london-islington
+  title: London
+  city: London
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-london
+  subtitle: Islington
+  query: Islington, London, United Kingdom
+  centre:
+    lat: 51.5362
+    lon: -0.103
+  radius: 1100
+  tag_hints:
+  - london gift
+- slug: london-notting-hill
+  title: London
+  city: London
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-london
+  subtitle: Notting Hill
+  query: Notting Hill, London, United Kingdom
+  centre:
+    lat: 51.5136
+    lon: -0.201
+  radius: 1100
+  tag_hints:
+  - london gift
+- slug: london-shoreditch
+  title: London
+  city: London
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-london
+  subtitle: Shoreditch
+  query: Shoreditch, London, United Kingdom
+  centre:
+    lat: 51.5246
+    lon: -0.078
+  radius: 1100
+  tag_hints:
+  - east london
+  - london gift
+- slug: london-soho
+  title: London
+  city: London
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-london
+  subtitle: Soho
+  query: Soho, London, United Kingdom
+  centre:
+    lat: 51.5136
+    lon: -0.134
+  radius: 1100
+  tag_hints:
+  - london gift
+- slug: london-tower-bridge
+  title: London
+  city: London
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-london
+  subtitle: Tower Bridge
+  query: Tower Bridge, London, United Kingdom
+  centre:
+    lat: 51.5055
+    lon: -0.0754
+  radius: 1100
+  tag_hints:
+  - tower bridge
+  - uk wall art
+- slug: los-angeles-downtown
+  title: Los Angeles
+  city: Los Angeles
+  country: USA
+  osm_region: north-america/us/california/socal
+  subtitle: Downtown
+  query: Downtown Los Angeles, California, USA
+  centre:
+    lat: 34.048
+    lon: -118.251
+  radius: 1100
+  tag_hints:
+  - california decor
+  - la wall art
+- slug: madrid-sol
+  title: Madrid
+  city: Madrid
+  country: Spain
+  osm_region: europe/spain/madrid
+  subtitle: Sol
+  query: Sol, Madrid, Spain
+  centre:
+    lat: 40.4169
+    lon: -3.7035
+  radius: 1100
+  tag_hints:
+  - spain map
+- slug: manchester
+  title: Manchester
+  city: Manchester
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/greater-manchester
+  query: Manchester, United Kingdom
+  centre:
+    lat: 53.4808
+    lon: -2.2426
+  radius: 1100
+  tag_hints:
+  - england map
+- slug: manhattan-central-park
+  title: Manhattan
+  city: Manhattan
+  country: USA
+  osm_region: north-america/us/new-york
+  subtitle: Central Park
+  query: Central Park, Manhattan, USA
+  centre:
+    lat: 40.7812
+    lon: -73.9665
+  radius: 1300
+  tag_hints:
+  - new york gift
+  - nyc map
+- slug: milan
+  title: Milan
+  city: Milan
+  country: Italy
+  osm_region: europe/italy/nord-ovest
+  query: Milan, Italy
+  centre:
+    lat: 45.4642
+    lon: 9.19
+  radius: 1100
+  tag_hints:
+  - italy map
+  - milano print
+- slug: munich
+  title: Munich
+  city: Munich
+  country: Germany
+  osm_region: europe/germany/bayern/oberbayern
+  query: Munich, Germany
+  centre:
+    lat: 48.1374
+    lon: 11.5755
+  radius: 1100
+  tag_hints:
+  - germany map
+- slug: nashville
+  title: Nashville
+  city: Nashville
+  country: USA
+  osm_region: north-america/us/tennessee
+  query: Nashville, USA
+  centre:
+    lat: 36.1627
+    lon: -86.7816
+  radius: 1100
+  tag_hints:
+  - tennessee map
+- slug: new-orleans-french-quarter
+  title: New Orleans
+  city: New Orleans
+  country: USA
+  osm_region: north-america/us/louisiana
+  subtitle: French Quarter
+  query: French Quarter, New Orleans, USA
+  centre:
+    lat: 29.9584
+    lon: -90.0644
+  radius: 1100
+  tag_hints:
+  - louisiana gift
+  - nola map
+- slug: new-york-lower-manhattan
+  title: New York
+  city: New York
+  country: USA
+  osm_region: north-america/us/new-york
+  subtitle: Lower Manhattan
+  query: Lower Manhattan, New York, USA
+  centre:
+    lat: 40.718
+    lon: -74.002
+  radius: 1500
+  tag_hints:
+  - nyc wall art
+  - manhattan map
+- slug: oxford
+  title: Oxford
+  city: Oxford
+  country: United Kingdom
+  osm_region: europe/united-kingdom/england/oxfordshire
+  query: Oxford, United Kingdom
+  centre:
+    lat: 51.752
+    lon: -1.2577
+  radius: 1100
+  tag_hints:
+  - university gift
+- slug: paris-eiffel-tower
+  title: Paris
+  city: Paris
+  country: France
+  osm_region: europe/france/ile-de-france
+  subtitle: Eiffel Tower
+  query: Eiffel Tower, Paris, France
+  centre:
+    lat: 48.8584
+    lon: 2.2945
+  radius: 1100
+  tag_hints:
+  - eiffel tower print
+  - france wall art
+- slug: paris-le-marais
+  title: Paris
+  city: Paris
+  country: France
+  osm_region: europe/france/ile-de-france
+  subtitle: Le Marais
+  query: Le Marais, Paris, France
+  centre:
+    lat: 48.859
+    lon: 2.358
+  radius: 1100
+  tag_hints:
+  - france map
+  - paris gift
+- slug: paris-louvre
+  title: Paris
+  city: Paris
+  country: France
+  osm_region: europe/france/ile-de-france
+  subtitle: Louvre
+  query: Louvre Museum, Paris, France
+  centre:
+    lat: 48.8606
+    lon: 2.3376
+  radius: 1100
+  tag_hints:
+  - louvre
+  - france wall art
+- slug: paris-montmartre
+  title: Paris
+  city: Paris
+  country: France
+  osm_region: europe/france/ile-de-france
+  subtitle: Montmartre
+  query: Montmartre, Paris, France
+  centre:
+    lat: 48.8867
+    lon: 2.3431
+  radius: 1100
+  tag_hints:
+  - france map
+  - paris gift
+- slug: paris-notre-dame
+  title: Paris
+  city: Paris
+  country: France
+  osm_region: europe/france/ile-de-france
+  subtitle: Notre-Dame
+  query: Notre-Dame de Paris, France
+  centre:
+    lat: 48.853
+    lon: 2.3499
+  radius: 1100
+  tag_hints:
+  - notre dame
+  - france wall art
+- slug: philadelphia
+  title: Philadelphia
+  city: Philadelphia
+  country: USA
+  osm_region: north-america/us/pennsylvania
+  subtitle: Center City
+  query: Center City, Philadelphia, USA
+  centre:
+    lat: 39.9526
+    lon: -75.1652
+  radius: 1100
+  tag_hints:
+  - philly map
+- slug: porto-ribeira
+  title: Porto
+  city: Porto
+  country: Portugal
+  osm_region: europe/portugal
+  subtitle: Ribeira
+  query: Ribeira, Porto, Portugal
+  centre:
+    lat: 41.146
+    lon: -8.611
+  radius: 900
+  tag_hints:
+  - portugal map
+- slug: prague-old-town
+  title: Prague
+  city: Prague
+  country: Czechia
+  osm_region: europe/czech-republic
+  subtitle: Old Town
+  query: Old Town, Prague, Czechia
+  centre:
+    lat: 50.087
+    lon: 14.421
+  radius: 1100
+  tag_hints:
+  - czech map
+- slug: rome-centro-storico
+  title: Rome
+  city: Rome
+  country: Italy
+  osm_region: europe/italy/centro
+  subtitle: Centro Storico
+  query: Centro Storico, Rome, Italy
+  centre:
+    lat: 41.8986
+    lon: 12.4769
+  radius: 1100
+  tag_hints:
+  - italy map
+  - roma print
+- slug: san-francisco-mission
+  title: San Francisco
+  city: San Francisco
+  country: USA
+  osm_region: north-america/us/california/norcal
+  subtitle: Mission District
+  query: Mission District, San Francisco, USA
+  centre:
+    lat: 37.7599
+    lon: -122.4148
+  radius: 1100
+  tag_hints:
+  - california gift
+  - sf map
+- slug: seattle-capitol-hill
+  title: Seattle
+  city: Seattle
+  country: USA
+  osm_region: north-america/us/washington
+  subtitle: Capitol Hill
+  query: Capitol Hill, Seattle, USA
+  centre:
+    lat: 47.6253
+    lon: -122.3222
+  radius: 1100
+  tag_hints:
+  - seattle gift
+- slug: seville
+  title: Seville
+  city: Seville
+  country: Spain
+  osm_region: europe/spain/andalucia
+  query: Seville, Spain
+  centre:
+    lat: 37.3891
+    lon: -5.9845
+  radius: 1100
+  tag_hints:
+  - sevilla print
+  - spain map
+- slug: vienna-innere-stadt
+  title: Vienna
+  city: Vienna
+  country: Austria
+  osm_region: europe/austria
+  subtitle: Innere Stadt
+  query: Innere Stadt, Vienna, Austria
+  centre:
+    lat: 48.2082
+    lon: 16.3738
+  radius: 1100
+  tag_hints:
+  - austria map
+  - wien print
+- slug: washington-dc-national-mall
+  title: Washington DC
+  city: Washington
+  country: USA
+  osm_region: north-america/us/district-of-columbia
+  subtitle: National Mall
+  query: National Mall, Washington, USA
+  centre:
+    lat: 38.8895
+    lon: -77.023
+  radius: 1200
+  tag_hints:
+  - dc map
+  - washington gift

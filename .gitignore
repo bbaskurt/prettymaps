@@ -1,3 +1,7 @@
-*.py[cod]
+.venv
 *.egg-info
+*.py[cod]
 cache
+output
+.env
+.etsy-token.json

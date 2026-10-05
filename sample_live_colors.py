@@ -45,6 +45,8 @@ def process_location(location, output, lite, radius):
             location,
             circle = True,
             radius = int(radius),
+            # No OpenStreetMap/prettymaps credit on the map; it is given in the shop description.
+            credit = False,
             layers = {
                 "green": {
                     "tags": {
@@ -141,7 +143,7 @@ def process_location(location, output, lite, radius):
             location,
             circle = True,
             radius = 1100,
-            #credit = False,
+            credit = False,
             #title = 'Regent Park',
             dilate = 0,
             #rotation = 90

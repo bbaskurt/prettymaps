@@ -1,0 +1,15 @@
+# Three-poster sets, each sold as one listing. Every place must exist in places.yaml.
+# Sorted alphabetically by slug.
+sets:
+- slug: barcelona-set
+  title: Barcelona
+  places: [barcelona-sagrada-familia, barcelona-park-guell, barcelona-plaza-catalunya]
+- slug: london-set
+  title: London
+  places: [london-big-ben, london-buckingham-palace, london-tower-bridge]
+- slug: paris-set
+  title: Paris
+  places: [paris-eiffel-tower, paris-louvre, paris-notre-dame]
+- slug: usa-set
+  title: USA
+  places: [new-york-lower-manhattan, chicago-the-loop, los-angeles-downtown]
