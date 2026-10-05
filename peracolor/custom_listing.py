@@ -20,6 +20,7 @@ from peracolor.sizes import PRINT_SPECS
 from peracolor.style import FONT_BODY, FONT_SMALL, FONT_TITLE, INK, MUTED_INK, POSTER_BACKGROUND
 from peracolor.typography import draw_tracked_centred, load_font
 
+CUSTOM_LISTING_ID = 4589227423
 A4_PIXELS = (2480, 3508)
 DELIVERY_HOURS = 48
 
@@ -51,11 +52,20 @@ def personalised_place(base: Place, example: CustomExample) -> Place:
     return palette_variant(base, example.palette).model_copy(update={"title": example.title, "subtitle": example.subtitle})
 
 
+def example_poster(places: dict[str, Place], raw_dir: Path, example: CustomExample, size: tuple[int, int] = PREVIEW_SIZE) -> Image.Image:
+    member = load_member(personalised_place(places[example.slug], example), raw_dir)
+    return compose_poster(member.raw_map, member.place, member.centre, size)
+
+
+def colour_example_posters(places: dict[str, Place], raw_dir: Path, size: tuple[int, int] = PREVIEW_SIZE) -> list[Image.Image]:
+    """The "Our First Home" example in Original, Mono and Sage & Terracotta."""
+    example = EXAMPLES[2]
+    palettes = (PaletteName.ORIGINAL, PaletteName.MONO, PaletteName.SAGE_TERRACOTTA)
+    return [example_poster(places, raw_dir, example.model_copy(update={"palette": palette}), size) for palette in palettes]
+
+
 def examples_image(places: dict[str, Place], raw_dir: Path) -> Image.Image:
-    posters = []
-    for example in EXAMPLES:
-        member = load_member(personalised_place(places[example.slug], example), raw_dir)
-        posters.append(compose_poster(member.raw_map, member.place, member.centre, PREVIEW_SIZE))
+    posters = [example_poster(places, raw_dir, example) for example in EXAMPLES]
     canvas, centres = triptych_with_centres(posters)
     draw = ImageDraw.Draw(canvas)
     width, height = CANVAS_SIZE
@@ -79,13 +89,7 @@ def how_it_works_image() -> Image.Image:
 
 
 def colours_image(places: dict[str, Place], raw_dir: Path) -> Image.Image:
-    example = EXAMPLES[2]
-    base = places[example.slug]
-    previews = []
-    for palette in (PaletteName.ORIGINAL, PaletteName.MONO, PaletteName.SAGE_TERRACOTTA):
-        member = load_member(personalised_place(base, example.model_copy(update={"palette": palette})), raw_dir)
-        previews.append(compose_poster(member.raw_map, member.place, member.centre, PREVIEW_SIZE))
-    return labelled_triptych(previews)
+    return labelled_triptych(colour_example_posters(places, raw_dir))
 
 
 def order_info_pdf(path: Path) -> Path:

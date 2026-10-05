@@ -43,6 +43,7 @@ class PosterSet(BaseModel):
     slug: Slug
     title: str
     places: list[Slug] = Field(min_length=SET_SIZE, max_length=SET_SIZE)
+    listing_id: int | None = None
 
 
 class SetsFile(BaseModel):

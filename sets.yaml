@@ -4,12 +4,16 @@ sets:
 - slug: barcelona-set
   title: Barcelona
   places: [barcelona-sagrada-familia, barcelona-park-guell, barcelona-plaza-catalunya]
+  listing_id: 1735996056
 - slug: london-set
   title: London
   places: [london-big-ben, london-buckingham-palace, london-tower-bridge]
+  listing_id: 1747496509
 - slug: paris-set
   title: Paris
   places: [paris-eiffel-tower, paris-louvre, paris-notre-dame]
+  listing_id: 1746882667
 - slug: usa-set
   title: USA
   places: [new-york-lower-manhattan, chicago-the-loop, los-angeles-downtown]
+  listing_id: 1755418317

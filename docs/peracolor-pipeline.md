@@ -21,6 +21,7 @@ uv run python -m peracolor colourways --only bath                # 3-colour pack
 uv run python -m peracolor sets                                  # three-map set listings from sets.yaml
 uv run python -m peracolor palettes --only bath                  # side-by-side palette comparison sheet
 uv run python -m peracolor pins                                  # Pinterest pins + pins.csv for every place in etsy_listings.yaml
+uv run python -m peracolor extra-pins                            # Pinterest pins + extra-pins.csv for the Custom Map and set listings
 ```
 
 | Command      | Network        | What it does |
@@ -31,6 +32,7 @@ uv run python -m peracolor pins                                  # Pinterest pin
 | `listing`    | no             | Writes `listing.json` (title, 13 tags, description) |
 | `sets`       | no             | Three-map set packages in `output/sets/<set>/` |
 | `palettes`   | no             | Renders one place in every palette for comparison |
+| `extra-pins` | no             | Custom Map and set pins in `output/pins/custom-map` and `output/pins/sets`, plus `extra-pins.csv` |
 | `pins`       | no             | 1000x1500 Pinterest pins and `output/pins/pins.csv` |
 | `all`        | first use only | `render` + `compose` + `listing`, skipping cached renders |
 

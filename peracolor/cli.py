@@ -13,6 +13,7 @@ from peracolor.export import compose_place, write_listing
 from peracolor.models import Place, load_places, select_places
 from peracolor.palette_preview import preview_palettes
 from peracolor.pins import write_pins, write_pins_csv
+from peracolor.pins_extra import write_custom_pins, write_set_pins
 from peracolor.palettes import PALETTES, PaletteName, palette_variant, style_for
 from peracolor.render import configure_osmnx, render_place
 from peracolor.sets import compose_set, load_sets
@@ -24,6 +25,7 @@ class Command(StrEnum):
     ALL = "all"
     COLOURWAYS = "colourways"
     COMPOSE = "compose"
+    EXTRA_PINS = "extra-pins"
     LISTING = "listing"
     PALETTES = "palettes"
     PINS = "pins"
@@ -60,7 +62,7 @@ def run_place(command: Command, place: Place, args: argparse.Namespace) -> None:
             compose_colourways(place, raw_dir, args.output)
         case Command.PALETTES:
             preview_palettes(place, args.cache, args.output)
-        case Command.SETS | Command.PINS:
+        case Command.EXTRA_PINS | Command.SETS | Command.PINS:
             raise ValueError(f"The {command} command runs once for all places, not per place")
         case Command.ALL:
             render_place(place, args.cache, style, force=args.force)
@@ -88,8 +90,21 @@ def run_pins(args: argparse.Namespace) -> None:
     logger.info("Wrote {} pins for {} places", len(copies), len(places))
 
 
+def run_extra_pins(args: argparse.Namespace) -> None:
+    """Pins for the Custom Map and set listings, with their own CSV of pin text."""
+    places = {place.slug: place for place in load_places(args.places)}
+    pins_dir = args.output / "pins"
+    raw_dir = args.cache / "raw"
+    copies = write_custom_pins(places, raw_dir, pins_dir) + write_set_pins(load_sets(args.sets), places, raw_dir, pins_dir)
+    write_pins_csv(copies, pins_dir / "extra-pins.csv")
+    logger.info("Wrote {} custom map and set pins", len(copies))
+
+
 def main(argv: list[str] | None = None) -> None:
     args = parse_args(argv)
+    if args.command == Command.EXTRA_PINS:
+        run_extra_pins(args)
+        return
     if args.command == Command.SETS:
         run_sets(args)
         return

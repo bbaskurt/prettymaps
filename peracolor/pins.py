@@ -29,6 +29,7 @@ DESCRIPTION_MAX = 500
 ETSY_LISTING_URL = "https://www.etsy.com/listing/{listing_id}"
 GENERAL_BOARD = "City Map Prints"
 FOOTER = "PRINTABLE WALL ART  ·  INSTANT DOWNLOAD"
+HEADLINE_TRACKING = 4
 
 
 class PinCopy(BaseModel):
@@ -44,13 +45,13 @@ def area_name(place: Place) -> str:
     return place.subtitle or place.city
 
 
-def pin_canvas(place: Place, headline: str, headline_size: int = 38) -> tuple[Image.Image, ImageDraw.ImageDraw]:
+def pin_canvas(heading: str, subheading: str, headline: str, headline_size: int = 38) -> tuple[Image.Image, ImageDraw.ImageDraw]:
     canvas = Image.new("RGB", PIN_SIZE, PIN_BACKGROUND)
     draw = ImageDraw.Draw(canvas)
     width, height = PIN_SIZE
-    draw_tracked_centred(draw, place.title.upper(), load_font(FONT_TITLE, 78), width / 2, 135, 16, INK)
-    draw_tracked_centred(draw, area_name(place).upper(), load_font(FONT_BODY, 34), width / 2, 200, 8, MUTED_INK)
-    draw_tracked_centred(draw, headline, load_font(FONT_BODY, headline_size), width / 2, height - 120, 4, INK)
+    draw_tracked_centred(draw, heading.upper(), load_font(FONT_TITLE, 78), width / 2, 135, 16, INK)
+    draw_tracked_centred(draw, subheading.upper(), load_font(FONT_BODY, 34), width / 2, 200, 8, MUTED_INK)
+    draw_tracked_centred(draw, headline, load_font(FONT_BODY, headline_size), width / 2, height - 120, HEADLINE_TRACKING, INK)
     draw_tracked_centred(draw, FOOTER, load_font(FONT_SMALL, 26), width / 2, height - 60, 4, MUTED_INK)
     return canvas, draw
 
@@ -60,10 +61,8 @@ def paste_with_shadow(canvas: Image.Image, image: Image.Image, left: int, top: i
     canvas.paste(image, (left, top))
 
 
-def all_colours_pin(place: Place, members: list[SetMember]) -> Image.Image:
-    """Original large on top, Mono and Sage & Terracotta side by side below."""
-    canvas, _ = pin_canvas(place, "3 COLOUR VERSIONS INCLUDED")
-    posters = [compose_poster(m.raw_map, m.place, m.centre, POSTER_PREVIEW) for m in members]
+def paste_trio(canvas: Image.Image, posters: list[Image.Image]) -> None:
+    """First poster large on top, the other two side by side below."""
     main = posters[0].resize((440, 550), Image.Resampling.LANCZOS)
     paste_with_shadow(canvas, main, (PIN_SIZE[0] - main.width) // 2, 260)
     small = [poster.resize((330, 412), Image.Resampling.LANCZOS) for poster in posters[1:]]
@@ -72,15 +71,29 @@ def all_colours_pin(place: Place, members: list[SetMember]) -> Image.Image:
     for image in small:
         paste_with_shadow(canvas, image, left, 860)
         left += image.width + gap
+
+
+def member_posters(members: list[SetMember]) -> list[Image.Image]:
+    return [compose_poster(m.raw_map, m.place, m.centre, POSTER_PREVIEW) for m in members]
+
+
+def all_colours_pin(place: Place, members: list[SetMember]) -> Image.Image:
+    """Original large on top, Mono and Sage & Terracotta side by side below."""
+    canvas, _ = pin_canvas(place.title, area_name(place), "3 COLOUR VERSIONS INCLUDED")
+    paste_trio(canvas, member_posters(members))
+    return canvas
+
+
+def framed_pin(heading: str, subheading: str, headline: str, poster: Image.Image) -> Image.Image:
+    canvas, _ = pin_canvas(heading, subheading, headline, headline_size=30)
+    frame = framed_poster(poster, frame_height=940)
+    paste_with_shadow(canvas, frame, (PIN_SIZE[0] - frame.width) // 2, 265)
     return canvas
 
 
 def single_colour_pin(place: Place, member: SetMember, label: str) -> Image.Image:
-    canvas, _ = pin_canvas(place, f"{label.upper()}  ·  3 COLOURS INCLUDED", headline_size=30)
-    poster = compose_poster(member.raw_map, member.place, member.centre, POSTER_PREVIEW)
-    frame = framed_poster(poster, frame_height=940)
-    paste_with_shadow(canvas, frame, (PIN_SIZE[0] - frame.width) // 2, 265)
-    return canvas
+    poster = member_posters([member])[0]
+    return framed_pin(place.title, area_name(place), f"{label.upper()}  ·  3 COLOURS INCLUDED", poster)
 
 
 def pin_title(place: Place, suffix: str) -> str:
