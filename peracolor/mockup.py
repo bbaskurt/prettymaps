@@ -80,7 +80,10 @@ def framed_mockup(poster: Image.Image) -> Image.Image:
     return canvas
 
 
-def sizes_guide(specs: list[PrintSpec] | None = None) -> Image.Image:
+DEFAULT_SIZES_FOOTER = "INSTANT DIGITAL DOWNLOAD  ·  300 DPI  ·  NO PHYSICAL ITEM SHIPPED"
+
+
+def sizes_guide(specs: list[PrintSpec] | None = None, footer: str = DEFAULT_SIZES_FOOTER) -> Image.Image:
     """Grid of included print sizes; defaults to every format a single listing ships."""
     specs = list(PRINT_SPECS.values()) if specs is None else specs
     canvas = Image.new("RGB", CANVAS_SIZE, POSTER_BACKGROUND)
@@ -94,6 +97,5 @@ def sizes_guide(specs: list[PrintSpec] | None = None) -> Image.Image:
         draw_tracked_centred(draw, spec.label, heading_font, centre_x, 700, 8, MUTED_INK)
         for row, size in enumerate(spec.printable_sizes):
             draw_tracked_centred(draw, size, size_font, centre_x, 860 + row * 130, 4, INK)
-    footer = "INSTANT DIGITAL DOWNLOAD  ·  300 DPI  ·  NO PHYSICAL ITEM SHIPPED"
     draw_tracked_centred(draw, footer, load_font(FONT_BODY, 52), width / 2, height - 220, 10, INK)
     return canvas
