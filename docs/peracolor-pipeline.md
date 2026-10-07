@@ -21,6 +21,7 @@ uv run python -m peracolor colourways --only bath                # 3-colour pack
 uv run python -m peracolor sets                                  # three-map set listings from sets.yaml
 uv run python -m peracolor palettes --only bath                  # side-by-side palette comparison sheet
 uv run python -m peracolor pins                                  # Pinterest pins + pins.csv for every place in etsy_listings.yaml
+uv run python -m peracolor publish --only lyon-presquile         # Create and publish Etsy listings (costs the listing fee; --only required)
 uv run python -m peracolor extra-pins                            # Pinterest pins + extra-pins.csv for the Custom Map and set listings
 ```
 
@@ -33,6 +34,7 @@ uv run python -m peracolor extra-pins                            # Pinterest pin
 | `sets`       | no             | Three-map set packages in `output/sets/<set>/` |
 | `palettes`   | no             | Renders one place in every palette for comparison |
 | `extra-pins` | no             | Custom Map and set pins in `output/pins/custom-map` and `output/pins/sets`, plus `extra-pins.csv` |
+| `publish`    | no             | Free draft, then active listing (Etsy fee) from `output/colourways/<slug>/`; records the ID in `etsy_listings.yaml` |
 | `pins`       | no             | 1000x1500 Pinterest pins and `output/pins/pins.csv` |
 | `all`        | first use only | `render` + `compose` + `listing`, skipping cached renders |
 

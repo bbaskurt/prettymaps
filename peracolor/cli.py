@@ -14,6 +14,8 @@ from peracolor.models import Place, load_places, select_places
 from peracolor.palette_preview import preview_palettes
 from peracolor.pins import write_pins, write_pins_csv
 from peracolor.pins_extra import write_custom_pins, write_set_pins
+from peracolor.etsy_api import EtsyClient
+from peracolor.publish_places import publish_place
 from peracolor.palettes import PALETTES, PaletteName, palette_variant, style_for
 from peracolor.render import configure_osmnx, render_place
 from peracolor.sets import compose_set, load_sets
@@ -29,6 +31,7 @@ class Command(StrEnum):
     LISTING = "listing"
     PALETTES = "palettes"
     PINS = "pins"
+    PUBLISH = "publish"
     RENDER = "render"
     SETS = "sets"
 
@@ -62,7 +65,7 @@ def run_place(command: Command, place: Place, args: argparse.Namespace) -> None:
             compose_colourways(place, raw_dir, args.output)
         case Command.PALETTES:
             preview_palettes(place, args.cache, args.output)
-        case Command.EXTRA_PINS | Command.SETS | Command.PINS:
+        case Command.EXTRA_PINS | Command.PINS | Command.PUBLISH | Command.SETS:
             raise ValueError(f"The {command} command runs once for all places, not per place")
         case Command.ALL:
             render_place(place, args.cache, style, force=args.force)
@@ -100,8 +103,21 @@ def run_extra_pins(args: argparse.Namespace) -> None:
     logger.info("Wrote {} custom map and set pins", len(copies))
 
 
+def run_publish(args: argparse.Namespace) -> None:
+    """Publish the --only places as Etsy listings; each costs Etsy's listing fee."""
+    if not args.only:
+        raise ValueError("publish needs --only with the place slugs to publish")
+    client = EtsyClient()
+    shop_id = client.shop_id()
+    for place in select_places(load_places(args.places), args.only):
+        publish_place(client, shop_id, place, args.output, args.listings)
+
+
 def main(argv: list[str] | None = None) -> None:
     args = parse_args(argv)
+    if args.command == Command.PUBLISH:
+        run_publish(args)
+        return
     if args.command == Command.EXTRA_PINS:
         run_extra_pins(args)
         return

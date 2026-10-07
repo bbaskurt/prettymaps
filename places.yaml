@@ -21,6 +21,33 @@ places:
   tag_hints:
   - amsterdam gift
   - dutch decor
+- slug: ann-arbor-central-campus
+  title: Ann Arbor
+  city: Ann Arbor
+  country: USA
+  osm_region: north-america/us/michigan
+  subtitle: Central Campus
+  query: Central Campus, Ann Arbor, Michigan, USA
+  centre:
+    lat: 42.278
+    lon: -83.7382
+  radius: 1100
+  tag_hints:
+  - michigan wall art
+  - graduation gift
+- slug: asheville
+  title: Asheville
+  city: Asheville
+  country: USA
+  osm_region: north-america/us/north-carolina
+  query: Downtown Asheville, North Carolina, USA
+  centre:
+    lat: 35.5951
+    lon: -82.5515
+  radius: 1100
+  tag_hints:
+  - north carolina art
+  - asheville nc
 - slug: athens-plaka
   title: Athens
   city: Athens
@@ -203,6 +230,20 @@ places:
   radius: 1100
   tag_hints:
   - university gift
+- slug: charleston-historic-district
+  title: Charleston
+  city: Charleston
+  country: USA
+  osm_region: north-america/us/south-carolina
+  subtitle: Historic District
+  query: Historic District, Charleston, South Carolina, USA
+  centre:
+    lat: 32.784
+    lon: -79.937
+  radius: 900
+  tag_hints:
+  - south carolina art
+  - charleston sc
 - slug: chicago-the-loop
   title: Chicago
   city: Chicago
@@ -243,6 +284,19 @@ places:
   radius: 900
   tag_hints:
   - danish decor
+- slug: cork
+  title: Cork
+  city: Cork
+  country: Ireland
+  osm_region: europe/ireland-and-northern-ireland
+  query: City Centre, Cork, Ireland
+  centre:
+    lat: 51.8985
+    lon: -8.473
+  radius: 1100
+  tag_hints:
+  - ireland wall art
+  - irish gift
 - slug: denver
   title: Denver
   city: Denver
@@ -306,6 +360,20 @@ places:
   radius: 1100
   tag_hints:
   - scotland map
+- slug: hong-kong-central
+  title: Hong Kong
+  city: Hong Kong
+  country: Hong Kong
+  osm_region: asia/china/hong-kong
+  subtitle: Central
+  query: Central, Hong Kong
+  centre:
+    lat: 22.279
+    lon: 114.158
+  radius: 1000
+  tag_hints:
+  - hong kong art
+  - asia travel art
 - slug: istanbul-pera
   title: Istanbul
   city: Istanbul
@@ -470,6 +538,20 @@ places:
   tag_hints:
   - california decor
   - la wall art
+- slug: lyon-presquile
+  title: Lyon
+  city: Lyon
+  country: France
+  osm_region: europe/france/rhone-alpes
+  subtitle: Presqu'île
+  query: Presqu'île, Lyon, France
+  centre:
+    lat: 45.762
+    lon: 4.832
+  radius: 1100
+  tag_hints:
+  - france wall art
+  - french decor
 - slug: madrid-sol
   title: Madrid
   city: Madrid
@@ -695,6 +777,19 @@ places:
   radius: 1100
   tag_hints:
   - czech map
+- slug: raleigh
+  title: Raleigh
+  city: Raleigh
+  country: USA
+  osm_region: north-america/us/north-carolina
+  query: Downtown Raleigh, North Carolina, USA
+  centre:
+    lat: 35.7796
+    lon: -78.6382
+  radius: 1100
+  tag_hints:
+  - north carolina art
+  - raleigh nc
 - slug: rome-centro-storico
   title: Rome
   city: Rome
@@ -736,6 +831,20 @@ places:
   radius: 1100
   tag_hints:
   - seattle gift
+- slug: seoul-jongno
+  title: Seoul
+  city: Seoul
+  country: South Korea
+  osm_region: asia/south-korea
+  subtitle: Jongno
+  query: Jongno, Seoul, South Korea
+  centre:
+    lat: 37.574
+    lon: 126.985
+  radius: 1100
+  tag_hints:
+  - korea wall art
+  - korean decor
 - slug: seville
   title: Seville
   city: Seville
@@ -749,6 +858,34 @@ places:
   tag_hints:
   - sevilla print
   - spain map
+- slug: st-louis-downtown
+  title: St. Louis
+  city: St Louis
+  country: USA
+  osm_region: north-america/us/missouri
+  subtitle: Downtown
+  query: Downtown and Gateway Arch, St. Louis, Missouri, USA
+  centre:
+    lat: 38.628
+    lon: -90.195
+  radius: 1200
+  tag_hints:
+  - missouri wall art
+  - stl map
+- slug: venice-grand-canal
+  title: Venice
+  city: Venice
+  country: Italy
+  osm_region: europe/italy/nord-est
+  subtitle: Grand Canal
+  query: Rialto and Grand Canal, Venice, Italy
+  centre:
+    lat: 45.437
+    lon: 12.3346
+  radius: 900
+  tag_hints:
+  - italy wall art
+  - venezia
 - slug: vienna-innere-stadt
   title: Vienna
   city: Vienna
