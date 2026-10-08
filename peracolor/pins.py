@@ -122,7 +122,7 @@ def write_pins(place: Place, raw_dir: Path, output_dir: Path, listing_id: int | 
     all_colours_pin(place, members).save(all_path, quality=88)
     copies.append(PinCopy(
         image=str(all_path), title=pin_title(place, " | 3 Colours"), board=board, link=link,
-        description=pin_description(place, "You receive all 3 colour versions: Original, Mono and Sage & Terracotta."),
+        description=pin_description(place, "You receive all 3 colour versions: Original, Minimalist Mono and Sage & Terracotta."),
         alt_text=f"Three circle map posters of {area_name(place)}, {place.city} in original, mono and sage and terracotta colours",
     ))
     for name, member in zip(COLOURWAYS, members, strict=True):
